@@ -1,5 +1,6 @@
 package com.mcjty.tutorial;
 
+import com.mcjty.setup.ClientSetup;
 import com.mcjty.setup.Registration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -23,6 +24,7 @@ public class Tutorial {
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::setup);
+        bus.addListener(ClientSetup::setup);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

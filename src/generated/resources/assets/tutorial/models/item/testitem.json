@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "tutorial:item/firstitem0"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "tutorial:distance": 0.0
+      },
+      "model": "tutorial:item/testitem0"
+    },
+    {
+      "predicate": {
+        "tutorial:distance": 1.0
+      },
+      "model": "tutorial:item/testitem1"
+    },
+    {
+      "predicate": {
+        "tutorial:distance": 2.0
+      },
+      "model": "tutorial:item/testitem2"
+    },
+    {
+      "predicate": {
+        "tutorial:distance": 3.0
+      },
+      "model": "tutorial:item/testitem3"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 package com.mcjty.setup;
 
 import com.mcjty.items.TestItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fmllegacy.RegistryObject;
@@ -17,6 +18,6 @@ public class Registration {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
-    public static final RegistryObject<Item> TESTITEM = ITEMS.register("testitem", () -> new TestItem(new Item.Properties()));
+    public static final RegistryObject<TestItem> TESTITEM = ITEMS.register("testitem", () -> new TestItem(new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
 }

@@ -1,0 +1,6 @@
+{
+    "item.tutorial.testitem": "Fancy Pickaxe",
+
+    "message.testitem.tooltip": "Mine with extra distance %s",
+    "message.testitem.change": "Change extra distance to %s"
+}

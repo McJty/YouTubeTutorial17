@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "tutorial:testitem"
+    ]
+  },
+  "criteria": {
+    "sticks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:stick"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "tutorial:testitem"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sticks",
+      "has_the_recipe"
+    ]
+  ]
+}
