@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "tutorial:block/generator",
+    "up": "tutorial:block/generator",
+    "north": "tutorial:block/generator_front",
+    "south": "tutorial:block/generator",
+    "east": "tutorial:block/generator",
+    "west": "tutorial:block/generator"
+  }
+}

@@ -3,6 +3,7 @@ package com.mcjty.datagen;
 import com.mcjty.setup.Registration;
 import com.mcjty.tutorial.Tutorial;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -31,6 +32,8 @@ public class Items extends ItemModelProvider {
                 .override().predicate(DISTANCE_PROPERTY, 1).model(createTestModel(1)).end()
                 .override().predicate(DISTANCE_PROPERTY, 2).model(createTestModel(2)).end()
                 .override().predicate(DISTANCE_PROPERTY, 3).model(createTestModel(3)).end();
+
+        withExistingParent(Registration.GENERATOR_ITEM.get().getRegistryName().getPath(), new ResourceLocation(Tutorial.MODID, "block/generator"));
     }
 
     private ItemModelBuilder createTestModel(int suffix) {

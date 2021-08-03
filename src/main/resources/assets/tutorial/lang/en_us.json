@@ -1,6 +1,11 @@
 {
     "item.tutorial.testitem": "Fancy Pickaxe",
+    "block.tutorial.generator": "Power Generator",
+
+    "message.generator.tooltip": "The power generator",
 
     "message.testitem.tooltip": "Mine with extra distance %s",
-    "message.testitem.change": "Change extra distance to %s"
+    "message.testitem.change": "Change extra distance to %s",
+
+    "screen.tutorial.generator": "Generator Screen"
 }

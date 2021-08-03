@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tutorial",
+  "pattern": [
+    "iii",
+    "iCi",
+    "ccc"
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:ingots/iron"
+    },
+    "C": {
+      "tag": "forge:storage_blocks/coal"
+    },
+    "c": {
+      "tag": "minecraft:coals"
+    }
+  },
+  "result": {
+    "item": "tutorial:generator"
+  }
+}
