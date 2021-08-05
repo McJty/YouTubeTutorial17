@@ -34,6 +34,7 @@ public class Items extends ItemModelProvider {
                 .override().predicate(DISTANCE_PROPERTY, 3).model(createTestModel(3)).end();
 
         withExistingParent(Registration.GENERATOR_ITEM.get().getRegistryName().getPath(), new ResourceLocation(Tutorial.MODID, "block/generator"));
+        withExistingParent(Registration.DEMO_ITEM.get().getRegistryName().getPath(), new ResourceLocation(Tutorial.MODID, "block/demo"));
     }
 
     private ItemModelBuilder createTestModel(int suffix) {

@@ -40,6 +40,7 @@ public class LootTables extends LootTableProvider {
     public void run(HashCache cache) {
         Map<ResourceLocation, LootTable> tables = new HashMap<>();
         tables.put(Registration.GENERATOR.get().getLootTable(), createStandardTable("generator", Registration.GENERATOR.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(Registration.DEMO.get().getLootTable(), createStandardTable("demo", Registration.DEMO.get()).setParamSet(LootContextParamSets.BLOCK).build());
         writeTables(cache, tables);
     }
 

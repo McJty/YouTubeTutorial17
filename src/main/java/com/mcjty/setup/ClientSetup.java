@@ -4,6 +4,8 @@ import com.mcjty.blocks.GeneratorScreen;
 import com.mcjty.items.TestItem;
 import com.mcjty.tutorial.Tutorial;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -15,6 +17,7 @@ public class ClientSetup {
     public static void setup(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             MenuScreens.register(Registration.GENERATOR_CONTAINER.get(), GeneratorScreen::new);
+            ItemBlockRenderTypes.setRenderLayer(Registration.DEMO.get(), RenderType.translucent());
             initTestItemOverrides();
         });
     }

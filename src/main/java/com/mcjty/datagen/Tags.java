@@ -16,8 +16,10 @@ public class Tags extends BlockTagsProvider {
     @Override
     protected void addTags() {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(Registration.DEMO.get())
                 .add(Registration.GENERATOR.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
+                .add(Registration.DEMO.get())
                 .add(Registration.GENERATOR.get());
     }
 

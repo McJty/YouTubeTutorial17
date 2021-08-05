@@ -1,8 +1,6 @@
 package com.mcjty.setup;
 
-import com.mcjty.blocks.GeneratorBE;
-import com.mcjty.blocks.GeneratorBlock;
-import com.mcjty.blocks.GeneratorContainer;
+import com.mcjty.blocks.*;
 import com.mcjty.items.TestItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.inventory.MenuType;
@@ -47,5 +45,10 @@ public class Registration {
         Level world = inv.player.getCommandSenderWorld();
         return new GeneratorContainer(windowId, world, pos, inv, inv.player);
     }));
+
+    public static final RegistryObject<DemoBlock> DEMO = BLOCKS.register("demo", DemoBlock::new);
+    public static final RegistryObject<Item> DEMO_ITEM = ITEMS.register("demo", () -> new BlockItem(DEMO.get(), new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+    public static final RegistryObject<BlockEntityType<DemoBE>> DEMO_BE = BLOCKENTITIES.register("demo",
+            () -> BlockEntityType.Builder.of(DemoBE::new, DEMO.get()).build(null));
 
 }

@@ -25,6 +25,11 @@ public class BlockStates extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         registerGeneratorBlock();
+        registerDemoBlock();
+    }
+
+    private void registerDemoBlock() {
+        simpleBlock(Registration.DEMO.get());
     }
 
     private void registerGeneratorBlock() {
