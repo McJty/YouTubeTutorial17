@@ -1,5 +1,6 @@
 package com.mcjty.blocks;
 
+import com.mcjty.setup.Config;
 import com.mcjty.setup.Registration;
 import com.mcjty.tools.CustomEnergyStorage;
 import net.minecraft.core.BlockPos;
@@ -21,7 +22,6 @@ import javax.annotation.Nullable;
 
 public class DemoBE extends BlockEntity {
 
-    public static final int USAGE = 10;
     private final CustomEnergyStorage energyStorage = createEnergy();
 
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
@@ -75,19 +75,19 @@ public class DemoBE extends BlockEntity {
 
     public void tickServer(BlockState state) {
         if (hasEnoughPowerToWork()) {
-            energyStorage.consumeEnergy(USAGE);
+            energyStorage.consumeEnergy(Config.DEMO_USEPERTICK.get());
         }
     }
 
     public void tickClient(BlockState state) {
         if (hasPower) {
             BlockPos p = this.worldPosition;
-            level.addParticle(ParticleTypes.CLOUD, p.getX()+.5, p.getY() + 1.0, p.getZ()+.5, 0.0, 0.0, 0.0);
+            level.addParticle(ParticleTypes.CLOUD, p.getX()+.5, p.getY() + 1.0, p.getZ()+.5, 0.0, Config.DEMO_PARTICLE_YSPEED.get(), 0.0);
         }
     }
 
     private boolean hasEnoughPowerToWork() {
-        return energyStorage.getEnergyStored() >= USAGE;
+        return energyStorage.getEnergyStored() >= Config.DEMO_USEPERTICK.get();
     }
 
 
@@ -106,7 +106,7 @@ public class DemoBE extends BlockEntity {
     }
 
     private CustomEnergyStorage createEnergy() {
-        return new CustomEnergyStorage(1000, 20) {
+        return new CustomEnergyStorage(Config.DEMO_CAPACITY.get(), Config.DEMO_USEPERTICK.get() * 2) {
             @Override
             protected void onEnergyChanged() {
                 boolean newHasPower = hasEnoughPowerToWork();

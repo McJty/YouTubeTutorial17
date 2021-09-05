@@ -1,6 +1,7 @@
 package com.mcjty.tutorial;
 
 import com.mcjty.setup.ClientSetup;
+import com.mcjty.setup.Config;
 import com.mcjty.setup.Registration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,8 +20,17 @@ public class Tutorial {
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
 
+    // Order of initialization:
+    // At setup:
+    //   1. Registration
+    //   2. Config reading (for client + common)
+    //   3. FMLCommonSetupEvent
+    // After world load:
+    //   4. Config reading for server
+
     public Tutorial() {
         Registration.init();
+        Config.init();
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::setup);

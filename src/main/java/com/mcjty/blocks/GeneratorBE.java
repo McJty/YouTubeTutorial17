@@ -1,5 +1,6 @@
 package com.mcjty.blocks;
 
+import com.mcjty.setup.Config;
 import com.mcjty.setup.Registration;
 import com.mcjty.tools.CustomEnergyStorage;
 import net.minecraft.core.BlockPos;
@@ -50,7 +51,7 @@ public class GeneratorBE extends BlockEntity {
     public void tickServer(BlockState state) {
         if (counter > 0) {
             counter--;
-            energyStorage.addEnergy(50);
+            energyStorage.addEnergy(Config.GENERATOR_PERTICK.get());
             setChanged();
         }
 
@@ -81,7 +82,7 @@ public class GeneratorBE extends BlockEntity {
                 if (te != null) {
                     boolean doContinue = te.getCapability(CapabilityEnergy.ENERGY, direction).map(handler -> {
                                 if (handler.canReceive()) {
-                                    int received = handler.receiveEnergy(Math.min(capacity.get(), 1000), false);
+                                    int received = handler.receiveEnergy(Math.min(capacity.get(), Config.GENERATOR_SENDPERTICK.get()), false);
                                     capacity.addAndGet(-received);
                                     energyStorage.consumeEnergy(received);
                                     setChanged();
@@ -144,7 +145,7 @@ public class GeneratorBE extends BlockEntity {
     }
 
     private CustomEnergyStorage createEnergy() {
-        return new CustomEnergyStorage(100000, 0) {
+        return new CustomEnergyStorage(Config.GENERATOR_CAPACITY.get(), 0) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();
