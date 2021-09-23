@@ -68,7 +68,9 @@ public class GeneratorBlock extends Block implements EntityBlock {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return defaultBlockState().setValue(BlockStateProperties.FACING, context.getNearestLookingDirection().getOpposite());
+        return defaultBlockState()
+                .setValue(BlockStateProperties.FACING, context.getNearestLookingDirection().getOpposite())
+                .setValue(BlockStateProperties.POWERED,false);
     }
 
     @Override
