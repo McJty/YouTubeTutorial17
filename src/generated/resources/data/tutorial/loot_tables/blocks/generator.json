@@ -28,15 +28,6 @@
                   "op": "replace"
                 }
               ]
-            },
-            {
-              "function": "minecraft:set_contents",
-              "entries": [
-                {
-                  "type": "minecraft:dynamic",
-                  "name": "minecraft:contents"
-                }
-              ]
             }
           ],
           "name": "tutorial:generator"
