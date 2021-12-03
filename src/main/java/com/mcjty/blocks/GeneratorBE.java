@@ -101,6 +101,12 @@ public class GeneratorBE extends BlockEntity {
     }
 
     @Override
+    public void handleUpdateTag(CompoundTag tag) {
+        //No Op
+        // We do not want to call load with a tag that doesn't have the information to be loaded
+    }
+
+    @Override
     public void load(CompoundTag tag) {
         itemHandler.deserializeNBT(tag.getCompound("inv"));
         energyStorage.deserializeNBT(tag.get("energy"));
